@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         create: (_) => MyModel(someValue: 'new data'),
         child: Consumer<MyModel>(builder: (context, foo, child) {
           return FutureProvider.value(
-            value: someAsyncFunctionToGetMyModel(),
+            value: someAsyncFunctionToGetMyModel(),         //! call Future method  
             child: MaterialApp(
               home: Scaffold(
                 appBar: AppBar(title: Text('My App')),
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-Future<MyModel> someAsyncFunctionToGetMyModel() async {
+Future<MyModel> someAsyncFunctionToGetMyModel() async {     //! Future method to be used in FutureProvider
   //  <--- async function
   await Future.delayed(Duration(seconds: 3));
   return MyModel(someValue: '');
