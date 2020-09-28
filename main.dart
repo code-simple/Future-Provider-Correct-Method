@@ -55,6 +55,6 @@ class MyModel with ChangeNotifier {
   Future<void> doSomething() async {
     await Future.delayed(Duration(seconds: 2));
     someValue = 'Goodbye';
-    notifyListeners();
+    notifyListeners();                    // Important to alert Notifiier of changes.
   }
 }
